@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="crimson">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRYPT.SH // Gothic & Emo Coder Bento Login</title>
+  <meta name="description" content="A creative Emo & Gothic aesthetic login window with coder vibe, built using Bento Grid dark surfaces and interactive cyber-sigil telemetry.">
+  
+  <!-- Fonts: UnifrakturMaguntia (Gothic Blackletter), Cinzel Decorative (Gothic Roman), JetBrains Mono (Coder), Plus Jakarta Sans (UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="crt-active">
+
+  <!-- Fullscreen Interactive Canvas: Gothic Cyber Rain & Dark Cosmic Dust -->
+  <canvas id="cyberMatrixCanvas" class="bg-matrix-canvas"></canvas>
+
+  <!-- CRT Scanline & Vignette Effect Overlays -->
+  <div class="crt-scanlines" id="crtOverlay"></div>
+  <div class="vignette-layer"></div>
+  <div class="ambient-glow glow-crimson"></div>
+  <div class="ambient-glow glow-violet"></div>
+
+  <!-- Toast Notification Hub -->
+  <div id="toastContainer" class="toast-hub" aria-live="polite"></div>
+
+  <!-- Master Page Container -->
+  <div class="portal-wrapper">
+
+    <!-- Top Gothic Header Bar -->
+    <header class="goth-nav">
+      <div class="nav-brand">
+        <div class="brand-sigil">
+          <!-- Gothic Occult Cyber Sigil SVG -->
+          <svg viewBox="0 0 40 40" class="sigil-icon">
+            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.6"/>
+            <polygon points="20,4 34,28 6,28" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.8"/>
+            <polygon points="20,36 6,12 34,12" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.8"/>
+            <circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <line x1="20" y1="2" x2="20" y2="38" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            <line x1="2" y1="20" x2="38" y2="20" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            <text x="20" y="23" text-anchor="middle" font-size="9" fill="currentColor" font-family="'UnifrakturMaguntia', serif">⛧</text>
+          </svg>
+        </div>
+        <div class="brand-titles">
+          <div class="brand-title-wrap">
+            <span class="brand-gothic">Crypt</span><span class="brand-slash">.sh</span>
+            <span class="status-pill"><span class="pulsing-skull">☠</span> DAEMON ONLINE</span>
+          </div>
+          <span class="brand-sub">GOTHIC_CODER // DEV CLUB STYLE ROULETTE</span>
+        </div>
+      </div>
+
+      <!-- Controls & Quick Telemetry -->
+      <div class="nav-actions">
+        <!-- Live Timestamp with Milliseconds -->
+        <div class="telemetry-chip clock-chip">
+          <span class="chip-label">SYS_TIME</span>
+          <span id="liveClock" class="chip-val mono">00:00:00.000</span>
+        </div>
+
+        <!-- CRT Flicker Toggle -->
+        <button id="toggleCrtBtn" class="nav-btn icon-btn" title="Toggle CRT Scanline Aesthetics" aria-label="Toggle CRT Scanlines">
+          <span class="btn-icon">📺</span>
+          <span class="btn-text">CRT: ON</span>
+        </button>
+
+        <!-- Ambient Dark Synth Audio Player -->
+        <button id="toggleAudioBtn" class="nav-btn icon-btn" title="Toggle Gothic Emo Synthwave Drone" aria-label="Toggle Audio Ambient">
+          <span class="btn-icon" id="audioIcon">🔇</span>
+          <span class="btn-text" id="audioText">EMO DRONE</span>
+        </button>
+
+        <!-- Theme Palette Picker (Gothic Shades) -->
+        <div class="goth-theme-selector" title="Select Aesthetic Aura">
+          <button class="aura-dot active" data-aura="crimson" style="--aura: #e11d48;" title="Blood Crimson"></button>
+          <button class="aura-dot" data-aura="amethyst" style="--aura: #9333ea;" title="Midnight Amethyst"></button>
+          <button class="aura-dot" data-aura="toxic" style="--aura: #10b981;" title="Poison Matrix"></button>
+          <button class="aura-dot" data-aura="monolith" style="--aura: #94a3b8;" title="Ghost Monolith"></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Bento Grid Layout (CSS Grid with spans & dark surfaces) -->
+    <main class="bento-grid">
+
+      <!-- ========================================================
+           TILE 1: THE CRYPT LOGIN SHRINE (Spans 2 cols, 2 rows)
+           ======================================================== -->
+      <section class="bento-tile tile-login" id="loginTile">
+        <div class="tile-corner top-left">☩</div>
+        <div class="tile-corner top-right">☩</div>
+        <div class="tile-corner bottom-left">☩</div>
+        <div class="tile-corner bottom-right">☩</div>
+
+        <div class="login-header">
+          <div class="login-sigil-badge">
+            <span class="sigil-glyph">♰</span>
+          </div>
+          <div class="login-heading-group">
+            <h1 class="login-title">VØID <span class="goth-accent">AUTH</span></h1>
+            <p class="login-motto">// "There is code in the dark, and blood in the syntax."</p>
+          </div>
+        </div>
+
+        <!-- Auth Mode Switcher -->
+        <div class="auth-tabs" role="tablist">
+          <button class="auth-tab active" data-mode="gui" role="tab" aria-selected="true">
+            <span class="tab-glyph">⛓</span> GUI Shrine
+          </button>
+          <button class="auth-tab" data-mode="cli" role="tab" aria-selected="false">
+            <span class="tab-glyph">_&gt;</span> Terminal CLI
+          </button>
+          <button class="auth-tab" data-mode="ssh" role="tab" aria-selected="false">
+            <span class="tab-glyph">🗝</span> SSH Sigil
+          </button>
+        </div>
+
+        <!-- Tab 1: GUI Form -->
+        <form class="goth-form" id="guiLoginForm" novalidate>
+          
+          <!-- Handle Field -->
+          <div class="form-group">
+            <div class="label-row">
+              <label for="coderHandle">
+                <span class="label-glyph">☠</span> CODER HANDLE / DEV_ID
+              </label>
+              <span class="hint-text mono">user@subculture.io</span>
+            </div>
+            <div class="input-wrapper">
+              <span class="input-prefix">void://</span>
+              <input 
+                type="text" 
+                id="coderHandle" 
+                name="coderHandle" 
+                placeholder="shambhavi_hex" 
+                value="shambhavi_hex"
+                autocomplete="username" 
+                spellcheck="false"
+                required>
+              <span class="input-state" id="handleCheck">✓</span>
+            </div>
+          </div>
+
+          <!-- Secret Key Field -->
+          <div class="form-group">
+            <div class="label-row">
+              <label for="cipherPass">
+                <span class="label-glyph">⛧</span> CIPHER KEY / INCANTATION
+              </label>
+              <button type="button" class="glitch-toggle" id="togglePassBtn" title="Reveal / Conceal Password">
+                [ UNMASK ]
+              </button>
+            </div>
+            <div class="input-wrapper">
+              <span class="input-prefix">&gt;***</span>
+              <input 
+                type="password" 
+                id="cipherPass" 
+                name="cipherPass" 
+                placeholder="••••••••••••••••" 
+                value="mcr_disenchantment_666!"
+                autocomplete="current-password" 
+                required>
+              <span class="input-state" id="passEntropyBadge" title="Realtime Cryptographic Entropy">HIGH</span>
+            </div>
+
+            <!-- Dynamic Live Soul Corruption & Entropy Bar -->
+            <div class="entropy-gauge">
+              <div class="gauge-meta">
+                <span class="gauge-title">SOUL CORRUPTION ENTROPY</span>
+                <span class="gauge-pct mono" id="entropyPercent">88% (UNBREAKABLE)</span>
+              </div>
+              <div class="gauge-track">
+                <div class="gauge-fill" id="entropyFill" style="width: 88%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Options Row -->
+          <div class="form-meta-row">
+            <label class="goth-checkbox-label">
+              <input type="checkbox" id="bindSoulCheck" checked>
+              <span class="custom-goth-box">
+                <span class="check-skull">†</span>
+              </span>
+              <span class="checkbox-text">Bind Soul Permanently <span class="dim">(Remember Session)</span></span>
+            </label>
+            <a href="#reset" class="goth-link" id="lostSpellLink">Lost Incantation?</a>
+          </div>
+
+          <!-- Main Call to Action Button -->
+          <button type="submit" class="summon-btn" id="summonBtn">
+            <span class="btn-glitch-bg"></span>
+            <span class="btn-content">
+              <span class="btn-sword">⚔</span>
+              <span class="btn-label">SUMMON SESSION</span>
+              <span class="btn-sword">⚔</span>
+            </span>
+            <span class="btn-glow-edge"></span>
+          </button>
+
+          <!-- Alternative Crypt Passkeys -->
+          <div class="oauth-divider">
+            <span class="divider-line"></span>
+            <span class="divider-text">OR BIND VIA ANCIENT PROTOCOL</span>
+            <span class="divider-line"></span>
+          </div>
+
+          <div class="oauth-grid">
+            <button type="button" class="alt-auth-btn" id="btnGithubAuth">
+              <span class="alt-icon">⎇</span> GitHub Goth
+            </button>
+            <button type="button" class="alt-auth-btn" id="btnTouchAuth">
+              <span class="alt-icon">◎</span> Biometric Sigil
+            </button>
+            <button type="button" class="alt-auth-btn" id="btnPgpAuth">
+              <span class="alt-icon">§</span> PGP Key Ring
+            </button>
+          </div>
+
+        </form>
+
+        <!-- Tab 2: Terminal Interactive Login (Hidden initially) -->
+        <div class="cli-login-view" id="cliLoginView" style="display: none;">
+          <div class="cli-terminal-screen">
+            <p class="cli-sys-line">[SYSTEM] Spawning interactive SSH session on /dev/ttyGOTH</p>
+            <p class="cli-sys-line">[CIPHER] RSA 4096-bit Gothic Key handshake established.</p>
+            <div id="cliOutput"></div>
+            <div class="cli-input-row">
+              <span class="cli-prompt mono">root@void-crypt:~$</span>
+              <input type="text" id="cliInput" class="cli-inline-input" placeholder="type 'login' or 'help'..." autocomplete="off">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: SSH Key Dropzone (Hidden initially) -->
+        <div class="ssh-login-view" id="sshLoginView" style="display: none;">
+          <div class="ssh-dropzone" id="sshDropzone">
+            <div class="dropzone-icon">🗝</div>
+            <h3 class="dropzone-title">Drop your id_ed25519 or .pem Crypt Key</h3>
+            <p class="dropzone-sub">Drag & drop encrypted gothic soul signature file or click to browse</p>
+            <button type="button" class="mini-goth-btn" id="browseKeyBtn">Browse Local Key</button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ========================================================
+           TILE 2: GOTHIC DAEMON LOGS / TELEMETRY (Spans 1 col, 2 rows)
+           ======================================================== -->
+      <section class="bento-tile tile-terminal" id="terminalTile">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="term-dot dot-red"></span>
+            <span class="term-dot dot-yellow"></span>
+            <span class="term-dot dot-purple"></span>
+          </div>
+          <span class="terminal-title mono">daemon://emotions.d/stream</span>
+          <button class="term-clear-btn" id="clearLogsBtn" title="Clear Buffer">CLR</button>
+        </div>
+
+        <div class="terminal-logs-window" id="terminalLogs">
+          <!-- Dynamic logs appended via JS -->
+          <div class="log-entry sys">[00:00:01] <span class="tag-ok">[INIT]</span> Initializing melancholy sub-routine...</div>
+          <div class="log-entry info">[00:00:02] <span class="tag-sys">[LOAD]</span> Mounting /dev/black_veil_roots...</div>
+          <div class="log-entry warn">[00:00:03] <span class="tag-warn">[WARN]</span> Emotional memory leak detected in heart.cpp:666</div>
+          <div class="log-entry emo">[00:00:04] <span class="tag-goth">[EMO]</span> "Bury all your secrets in my code."</div>
+          <div class="log-entry sys">[00:00:05] <span class="tag-ok">[AUTH]</span> Gothic cipher algorithms loaded: AES-256-VOID</div>
+          <div class="log-entry code">[00:00:06] <span class="tag-hex">[0x666]</span> 0F AA C4 90 D3 11 0B 7E 5A FF 00 C1</div>
+          <div class="log-entry emo">[00:00:07] <span class="tag-goth">[EMO]</span> 404: Serotonin not found in kernel heap</div>
+        </div>
+
+        <div class="terminal-quick-cmd">
+          <span class="cmd-prompt">#</span>
+          <input type="text" id="quickCmdInput" placeholder="execute daemon cmd (try: 'bleed', 'sigil', 'quote')..." autocomplete="off">
+        </div>
+      </section>
+
+      <!-- ========================================================
+           TILE 3: LIVE RUNIC CIPHER VAULT (Spans 1 col, 1 row)
+           ======================================================== -->
+      <section class="bento-tile tile-cipher" id="cipherTile">
+        <div class="tile-header">
+          <span class="tile-tag">REALTIME CIPHER</span>
+          <button class="sigil-scramble-btn" id="scrambleSigilBtn" title="Recompute Nonce">↺ RE-HASH</button>
+        </div>
+        <h3 class="cipher-title mono">HEX_SIGIL // SHA3-512</h3>
+        
+        <!-- Live Runes Matrix -->
+        <div class="runic-display" id="runicDisplay">
+          <div class="rune-cell">0x7F</div>
+          <div class="rune-cell sigil-rune">⛧</div>
+          <div class="rune-cell">9C</div>
+          <div class="rune-cell sigil-rune">♰</div>
+          <div class="rune-cell">B4</div>
+          <div class="rune-cell sigil-rune">☠</div>
+          <div class="rune-cell">E0</div>
+          <div class="rune-cell sigil-rune">⛓</div>
+        </div>
+
+        <div class="cipher-hash-bar">
+          <span class="hash-label">HASH:</span>
+          <span class="hash-string mono" id="liveHashString">d41d8cd98f00b204e9800998ecf8427e</span>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           TILE 4: GOTHIC LO-FI AUDIO SYNTH & MOOD (Spans 1 col, 1 row)
+           ======================================================== -->
+      <section class="bento-tile tile-audio" id="audioTile">
+        <div class="tile-header">
+          <span class="tile-tag">ATMOSPHERE SYNTH</span>
+          <span class="audio-live-pill" id="audioLivePill">IDLE</span>
+        </div>
+        
+        <div class="audio-now-playing">
+          <div class="cassette-icon">
+            <span class="tape-reel left">◎</span>
+            <span class="tape-reel right">◎</span>
+          </div>
+          <div class="audio-track-info">
+            <div class="track-title" id="trackName">"Crying in Binary"</div>
+            <div class="track-artist">The Cure x Trent Reznor (808 Drone)</div>
+          </div>
+        </div>
+
+        <!-- Equalizer Waveform Bars -->
+        <div class="eq-visualizer" id="eqVisualizer">
+          <span class="eq-bar"></span>
+          <span class="eq-bar"></span>
+          <span class="eq-bar"></span>
+          <span class="eq-bar"></span>
+          <span class="eq-bar"></span>
+          <span class="eq-bar"></span>
+          <span class="eq-bar"></span>
+          <span class="eq-bar"></span>
+        </div>
+
+        <div class="audio-controls-row">
+          <button class="audio-play-toggle" id="audioPlayToggle">
+            <span class="play-icon">▶</span> START DRONE
+          </button>
+          <div class="sound-mode-label mono">432Hz DARKWAVE</div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           TILE 5: EMO CODER VITALS / SYSTEM HEALTH (Spans 1 col, 1 row)
+           ======================================================== -->
+      <section class="bento-tile tile-vitals" id="vitalsTile">
+        <div class="tile-header">
+          <span class="tile-tag">SOUL TELEMETRY</span>
+          <span class="mono vitals-stat">UPTIME: 66.6h</span>
+        </div>
+
+        <div class="vitals-list">
+          <!-- Stat 1 -->
+          <div class="vital-item">
+            <div class="vital-info">
+              <span class="vital-label"><span class="emo-glyph">🖤</span> Melancholy Level</span>
+              <span class="vital-val mono">94.8%</span>
+            </div>
+            <div class="vital-bar"><div class="vital-fill" style="width: 94.8%;"></div></div>
+          </div>
+
+          <!-- Stat 2 -->
+          <div class="vital-item">
+            <div class="vital-info">
+              <span class="vital-label"><span class="emo-glyph">☕</span> Monster / Black Coffee</span>
+              <span class="vital-val mono">87.3%</span>
+            </div>
+            <div class="vital-bar"><div class="vital-fill vital-amber" style="width: 87.3%;"></div></div>
+          </div>
+
+          <!-- Stat 3 -->
+          <div class="vital-item">
+            <div class="vital-info">
+              <span class="vital-label"><span class="emo-glyph">🕷</span> Bugs in Prod &amp; Heart</span>
+              <span class="vital-val mono">13 / 13</span>
+            </div>
+            <div class="vital-bar"><div class="vital-fill vital-red" style="width: 100%;"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           TILE 6: INTERACTIVE CYBER-SIGIL CANVAS (Spans 1 col, 1 row)
+           ======================================================== -->
+      <section class="bento-tile tile-sigil-canvas" id="sigilTile">
+        <div class="tile-header">
+          <span class="tile-tag">CYBER-SIGIL ENGINE</span>
+          <span class="sigil-coord mono" id="sigilCoord">X:00 Y:00</span>
+        </div>
+
+        <div class="interactive-sigil-box">
+          <canvas id="miniSigilCanvas" class="mini-sigil-canvas"></canvas>
+          <div class="sigil-crosshair-h"></div>
+          <div class="sigil-crosshair-v"></div>
+          <div class="sigil-center-label mono">OCCULT_VECTOR</div>
+        </div>
+
+        <div class="sigil-footer">
+          <span class="sigil-hint">// Move mouse to perturb dark geometric matrix</span>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Gothic Footer -->
+    <footer class="goth-footer">
+      <div class="footer-left">
+        <span class="footer-glyph">⛧</span>
+        <span class="footer-text">Built for <strong>Style Roulette Dev Club Challenge</strong> • Theme: <em>Bento + Dark Mode (Emo / Gothic Coder)</em></span>
+      </div>
+      <div class="footer-right">
+        <span class="footer-code mono">CSS Grid Spans • Pure Vanilla CSS • Web Audio API • Canvas Matrix</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
